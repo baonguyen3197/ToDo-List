@@ -10,11 +10,13 @@ import { SharedModule } from './shared/shared.module'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NbThemeModule, NbLayoutModule } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
+import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TodolistComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
