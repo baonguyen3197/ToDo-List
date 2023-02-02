@@ -7,9 +7,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  public todoList = <any>[]
+  public newItem = ""
+
   constructor() { }
 
   ngOnInit(): void {
+
+  }
+  
+  addTask(){
+    if (this.newItem == ''){
+    }
+    else{
+      this.todoList.push(this.newItem)
+      this.newItem=''
+    }
   }
 
+  
 }

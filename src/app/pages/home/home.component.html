@@ -1,14 +1,23 @@
-<div id="myDIV" class="header">
+<div id="myDIV" class="header" style="width:85%;right:0;">
     <h1>My ToDo List</h1>
-    <input type="text" id="myInput" placeholder="Title...">
-    <span onclick="newElement()" class="addBtn" style="width: 20%;"><i class="fa fa-plus-square-o"></i> Add</span>
+    <input type="text" id="myInput" placeholder="Title..." [(ngModel)]="newItem">
+    <button (click)="addTask()" class="addBtn" style="width: 20%;"><i class="fa fa-plus-square-o"></i> Add</button>
   </div>
   
-  <ul id="myUL">
+<div class="w3-container" style="width:85%;right:0;">
+  <div class="w3-pannel w3-border w3-border-green" style="width:95%">
+    <ul id="myUL">
+      <li *ngFor="let item of todoList"> {{item}} </li>
+    </ul>
+  </div>
+</div>
+
+  <!-- <ul id="myUL">
     <li>Hit the gym</li>
+    <span onclick="newElement()" class="editBtn" style="width: 20%;"><button style="font-size:18px"><i class="fa fa-edit"></i> Edit</button></span>
     <li class="checked">Pay bills</li>
     <li>Meet George</li>
     <li>Buy eggs</li>
     <li>Read a book</li>
     <li>Organize office</li>
-  </ul>
+  </ul> -->
