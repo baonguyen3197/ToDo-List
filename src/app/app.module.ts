@@ -10,6 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NbThemeModule, NbLayoutModule } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { HomeComponent } from './pages/home/home.component';
+import { HomeModule } from './pages/home/home.module';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { HomeComponent } from './pages/home/home.component';
     NbLayoutModule,
     NbEvaIconsModule,
     SharedModule,
-    FormsModule
+    FormsModule,
+    HomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

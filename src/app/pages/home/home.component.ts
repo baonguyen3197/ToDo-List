@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NbIconLibraries } from '@nebular/theme';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +11,10 @@ export class HomeComponent implements OnInit {
   public todoList = <any>[]
   public newItem = ""
 
-  constructor() { }
+  constructor(private iconLibraries: NbIconLibraries) { 
+    this.iconLibraries.registerFontPack('font-awesome', { iconClassPrefix: 'fa' });
+    this.iconLibraries.setDefaultPack('font-awesome');
+  }
 
   ngOnInit(): void {
 

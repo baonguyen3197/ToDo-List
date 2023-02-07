@@ -1,18 +1,84 @@
-<div id="myDIV" class="header" style="width:85%;right:0;">
-    <h1>My ToDo List</h1>
-    <input type="text" id="myInput" placeholder="Title..." [(ngModel)]="newItem">
-    <button (click)="addTask()" class="addBtn" style="width: 20%;"><i class="fa fa-plus-square-o"></i> Add</button>
-  </div>
-  
-<div class="w3-container" style="width:85%;right:0;">
-  <div class="w3-pannel w3-border w3-border-green" style="width:95%">
-    <ul id="myUL">
-      <li *ngFor="let item of todoList"> {{item}} </li>
-    </ul>
-  </div>
+<div id="myDIV" class="header" style="width:85%; right:0;">
+  <h1>My ToDo List</h1>
+  <input type="text" id="myInput" placeholder="Title..." [(ngModel)]="newItem">
+  <button (click)="addTask()" class="addBtn" style="width: 20%;margin-left: 2%;"><i class="fa fa-plus-square-o"></i>
+    Add</button>
 </div>
 
-  <!-- <ul id="myUL">
+<div class="w3-container" style="width:85%;right:0;margin-top: 1%;">
+  <div class="w3-row-padding">
+    <div class="w3-pannel w3-third">
+      <!-- <h2>To Do</h2>
+      <div style="width:100%; overflow-wrap: break-word;" *ngFor="let item of todoList">{{item}}>
+        <span><button class="w3-button w3-text-blue"><i class="fa fa-arrow-right"></i> Process</button>
+          <button class="w3-button w3-text-teal"><i class='fa fa-edit'></i>
+            Edit</button>
+          <button class="w3-button w3-text-red"><i class="fa fa-trash"></i> Delete</button></span>
+      </div> -->
+      <mat-card style="background-color: green;">
+        <mat-card-header>
+          <mat-card-title>To Do</mat-card-title>
+        </mat-card-header>
+      </mat-card>
+      <mat-card style="margin-top: 1%;" *ngFor="let item of todoList">
+        <mat-card-subtitle style="overflow-wrap: break-word;"> {{item}}
+          <mat-card-actions align="end">
+            <button mat-button class="w3-text-blue"><i class="fa fa-arrow-right"></i> Process</button>
+            <button mat-button class="w3-text-teal"><i class='fa fa-edit'></i> Edit</button>
+            <button mat-button class="w3-text-red"><i class="fa fa-trash"></i> Delete</button>
+          </mat-card-actions>
+        </mat-card-subtitle>
+      </mat-card>
+    </div>
+
+    <div class="w3-pannel w3-third">
+      <!-- <h2>Processing</h2>
+      <p>Some text..</p> -->
+      <mat-card style="background-color: blue;">
+        <mat-card-header>
+          <mat-card-title>Processing</mat-card-title>
+        </mat-card-header>
+      </mat-card>
+      <mat-card style="margin-top: 1%;">
+        <mat-card-subtitle>End
+          <mat-card-actions align="end">
+            <button mat-button class="w3-text-deep-orange"><i class="fa fa-arrow-left"></i> Backward</button>
+            <button mat-button class="w3-text-yellow"><i class="material-icons">cached</i> ToDo-ing</button>
+            <button mat-button class="w3-text-pink"><i class="material-icons">check_box_outline_blank</i> Check</button>
+          </mat-card-actions>
+        </mat-card-subtitle>
+      </mat-card>
+    </div>
+
+    <div class="w3-pannel w3-third">
+      <!-- <h2>Done</h2>
+      <p>Some text..</p> -->
+      <mat-card style="background-color: red;">
+        <mat-card-header>
+          <mat-card-title>Done</mat-card-title>
+        </mat-card-header>
+      </mat-card>
+      <mat-card style="margin-top: 1%;">
+        <mat-card-subtitle>End
+          <mat-card-actions align="end">
+            <button mat-button class="w3-text-deep-orange"><i class="fa fa-arrow-left"></i> Backward</button>
+            <button mat-button class="w3-text-purple"><i class="material-icons">check_box</i> Done</button>
+          </mat-card-actions>
+        </mat-card-subtitle>
+      </mat-card>
+    </div>
+  </div>
+  <nb-icon icon="star"></nb-icon>
+  <!-- <div class="w3-pannel w3-border w3-border-green" style="width:33.33%">
+    <div id="task" class="w3-pannel" style="width:auto" *ngFor="let item of todoList"> {{item}}
+      <span class="w3-pannel" style="margin-left:80%;">
+        <button class="w3-button w3-text-teal" style="margin-left:80%;"><i class='fa fa-edit'></i> Edit</button>
+        <button class="w3-button w3-text-red"><i class="fa fa-trash"></i> Delete</button>
+      </span>
+    </div> -->
+</div>
+
+<!-- <ul id="myUL">
     <li>Hit the gym</li>
     <span onclick="newElement()" class="editBtn" style="width: 20%;"><button style="font-size:18px"><i class="fa fa-edit"></i> Edit</button></span>
     <li class="checked">Pay bills</li>
