@@ -1,7 +1,7 @@
-<div id="myDIV" class="header" style="width:85%; right:0;">
+<div id="myDIV" class="header w3-card" style="width:85%; right:0;">
   <h1>My ToDo List</h1>
-  <input type="text" id="myInput" placeholder="Title..." [(ngModel)]="newItem">
-  <button (click)="addTask()" class="addBtn" style="width: 20%;margin-left: 2%;"><i class="fa fa-plus-square-o"></i>
+  <input type="text" id="myInput" placeholder="Title..." [(ngModel)]="task">
+  <button (click)="addTask(task)" class="addBtn" style="width: 20%;margin-left: 2%;"><i class="fa fa-plus-square-o"></i>
     Add</button>
 </div>
 
@@ -20,11 +20,14 @@
           <mat-card-title>To Do</mat-card-title>
         </mat-card-header>
       </mat-card>
-      <mat-card style="margin-top: 1%;" *ngFor="let item of todoList">
-        <mat-card-subtitle style="overflow-wrap: break-word;"> {{item}}
+      <mat-card class="w3-leftbar w3-border-green" style="margin-top: 1%; background-color: #FFFFFF;"
+        *ngFor="let item of todoList">
+        <mat-card-subtitle class="w3-text-black" style="overflow-wrap: break-word;"> {{item}}
           <mat-card-actions align="end">
-            <button mat-button class="w3-text-blue"><i class="fa fa-arrow-right"></i> Process</button>
-            <button mat-button class="w3-text-teal"><i class='fa fa-edit'></i> Edit</button>
+            <button mat-button class="w3-text-blue" (click)="processTask(task)"><i class="fa fa-arrow-right"></i>
+              Process</button>
+            <button mat-button mat-button (click)="openDialog()" class="w3-text-teal"><i class='fa fa-edit'></i>
+              Edit</button>
             <button mat-button class="w3-text-red"><i class="fa fa-trash"></i> Delete</button>
           </mat-card-actions>
         </mat-card-subtitle>
@@ -39,11 +42,12 @@
           <mat-card-title>Processing</mat-card-title>
         </mat-card-header>
       </mat-card>
-      <mat-card style="margin-top: 1%;">
-        <mat-card-subtitle>End
+      <mat-card class="w3-leftbar w3-border-blue" style="margin-top: 1%; background-color: #FFFFFF;"
+        *ngFor="let process of processList">
+        <mat-card-subtitle class="w3-text-black" style="overflow-wrap: break-word;"> {{process}}
           <mat-card-actions align="end">
             <button mat-button class="w3-text-deep-orange"><i class="fa fa-arrow-left"></i> Backward</button>
-            <button mat-button class="w3-text-yellow"><i class="material-icons">cached</i> ToDo-ing</button>
+            <button mat-button class="w3-text-yellow"><i class="fa fa-spinner fa-spin"></i> ToDo-ing</button>
             <button mat-button class="w3-text-pink"><i class="material-icons">check_box_outline_blank</i> Check</button>
           </mat-card-actions>
         </mat-card-subtitle>
@@ -51,39 +55,30 @@
     </div>
 
     <div class="w3-pannel w3-third">
-      <!-- <h2>Done</h2>
-      <p>Some text..</p> -->
       <mat-card style="background-color: red;">
         <mat-card-header>
           <mat-card-title>Done</mat-card-title>
         </mat-card-header>
       </mat-card>
-      <mat-card style="margin-top: 1%;">
-        <mat-card-subtitle>End
+      <mat-card class="w3-leftbar w3-border-red" style="margin-top: 1%; background-color: #FFFFFF;">
+        <mat-card-subtitle class="w3-text-black">End
           <mat-card-actions align="end">
-            <button mat-button class="w3-text-deep-orange"><i class="fa fa-arrow-left"></i> Backward</button>
-            <button mat-button class="w3-text-purple"><i class="material-icons">check_box</i> Done</button>
+            <!-- <button mat-button class="w3-text-deep-orange"><i class="fa fa-arrow-left"></i> Backward</button> -->
+            <button mat-button class="w3-text-red"><i class="fa fa-trash"></i> Clear</button>
+            <div class="w3-dropdown-hover">
+              <button mat-button class="w3-text-purple"><i class="material-icons">check_box</i>
+                Done</button>
+              <div class="w3-dropdown-content w3-bar w3-card-4">
+                <button mat-button class="w3-text-green" style="margin-left: 0;"><i class="fa fa-list-alt"></i>
+                  ToDo</button>
+                <button mat-button class="w3-text-blue"><i class="fa fa-spinner"></i> Processing</button>
+              </div>
+            </div>
           </mat-card-actions>
         </mat-card-subtitle>
       </mat-card>
+      <button mat-button class="w3-text-red" style="margin-left: 75%;"><i class="material-icons">delete_sweep</i> Clear
+        all</button>
     </div>
   </div>
-  <nb-icon icon="star"></nb-icon>
-  <!-- <div class="w3-pannel w3-border w3-border-green" style="width:33.33%">
-    <div id="task" class="w3-pannel" style="width:auto" *ngFor="let item of todoList"> {{item}}
-      <span class="w3-pannel" style="margin-left:80%;">
-        <button class="w3-button w3-text-teal" style="margin-left:80%;"><i class='fa fa-edit'></i> Edit</button>
-        <button class="w3-button w3-text-red"><i class="fa fa-trash"></i> Delete</button>
-      </span>
-    </div> -->
 </div>
-
-<!-- <ul id="myUL">
-    <li>Hit the gym</li>
-    <span onclick="newElement()" class="editBtn" style="width: 20%;"><button style="font-size:18px"><i class="fa fa-edit"></i> Edit</button></span>
-    <li class="checked">Pay bills</li>
-    <li>Meet George</li>
-    <li>Buy eggs</li>
-    <li>Read a book</li>
-    <li>Organize office</li>
-  </ul> -->

@@ -12,6 +12,9 @@ import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [NavbarComponent, SidebarComponent],
@@ -27,6 +30,9 @@ import { MatCardModule } from '@angular/material/card';
     MatIconModule,
     MatToolbarModule,
     MatCardModule,
+    MatMenuModule,
+    MatDialogModule,
+    MatProgressSpinnerModule,
   ],
   exports: [
     NavbarComponent,
@@ -41,6 +47,9 @@ import { MatCardModule } from '@angular/material/card';
     MatIconModule,
     MatToolbarModule,
     MatCardModule,
+    MatMenuModule,
+    MatDialogModule,
+    MatProgressSpinnerModule,
   ],
 })
 export class SharedModule {}
